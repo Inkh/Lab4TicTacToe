@@ -17,7 +17,13 @@ namespace Lab04_TicTacToe.Classes
 		/// </summary>
 		public bool IsTurn { get; set; }
 
-
+        /// <summary>
+        /// Prompts a coordinate selection on the board by current player.
+        /// Converts user input into coordinates by invoking PositionForNumber
+        /// Repeats the prompt if user does not select a valid location.
+        /// </summary>
+        /// <param name="board">Current game board</param>
+        /// <returns>Converted coordinate</returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -31,7 +37,12 @@ namespace Lab04_TicTacToe.Classes
 
 		}
 
-
+        /// <summary>
+        /// Converts player input to coordinates on board.
+        /// If user does not input valid format or unoccupied space, return null.
+        /// </summary>
+        /// <param name="position">Player input from GetPosition()</param>
+        /// <returns>Coordinate on board. Returns null if invalid</returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
@@ -50,7 +61,11 @@ namespace Lab04_TicTacToe.Classes
 			}
 		}
 
-	
+        /// <summary>
+        /// Places converted player input coordinate onto the board. 
+        /// </summary>
+        /// <param name="board">Current board</param>
+        /// <returns>True if valid position. False if invalid position.</returns>
 		public bool TakeTurn(Board board)
 		{
 			IsTurn = true;
