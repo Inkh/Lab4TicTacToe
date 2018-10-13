@@ -43,13 +43,13 @@ namespace Lab04_TicTacToe.Classes
                     SwitchPlayer();
                 }
             }
+            Board.DisplayBoard();
+            return Winner;
 			 //allow each player to see the board and take a turn.
 			 //A turn consists of picking a position on the board, and then putting their appropriate marker
 			 //in the board. Be sure to display the board after every turn to show the most up to date 
 			 //board so the next player can accurately choose. 
 			 //Once a winner is determined, display the board and return a winner 
-			 
-             return null; // REDO THIS LATER
 		}
 
 
