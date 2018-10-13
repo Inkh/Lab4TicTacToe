@@ -47,7 +47,7 @@ namespace Lab04_TicTacToe.Classes
                 }
             }
             Board.DisplayBoard();
-            Winner = NextPlayer();
+            Winner = PlayerOne.IsTurn ? PlayerTwo : PlayerOne;
             return Winner;
 		}
 
