@@ -13,7 +13,7 @@ namespace Lab04_TicTacToe
 
 		static void PlayGame()
 		{
-            // TODO: Instantiate your players
+            // DONE: Instantiate your players
             WriteLine("Enter player one name:");
             Player playerOne = new Player()
             {
@@ -25,11 +25,14 @@ namespace Lab04_TicTacToe
             Player playerTwo = new Player()
             {
                 Name = ReadLine(),
-                Marker = "0",
+                Marker = "O",
                 IsTurn = false
             };
+
             // Create the Game
+            Game newGame = new Game(playerOne, playerTwo);
             // Play the Game
+            newGame.Play();
             // Output the winner
         }
 	}

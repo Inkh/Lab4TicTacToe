@@ -31,16 +31,24 @@ namespace Lab04_TicTacToe.Classes
 		public Player Play()
 		{
 
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+            //TODO: Complete this method and utilize the rest of the class structure to play the game.
 
-			/*
-			 While there isn't a winner determined or too many turns have been taken,
-			 allow each player to see the board and take a turn.
-			 A turn consists of picking a position on the board, and then putting their appropriate marker
-			 in the board. Be sure to display the board after every turn to show the most up to date 
-			 board so the next player can accurately choose. 
-			 Once a winner is determined, display the board and return a winner 
-			 */
+
+            //While there isn't a winner determined or too many turns have been taken,
+            while (!CheckForWinner(Board))
+            {
+                Board.DisplayBoard();
+                if (NextPlayer().TakeTurn(Board))
+                {
+                    SwitchPlayer();
+                }
+            }
+			 //allow each player to see the board and take a turn.
+			 //A turn consists of picking a position on the board, and then putting their appropriate marker
+			 //in the board. Be sure to display the board after every turn to show the most up to date 
+			 //board so the next player can accurately choose. 
+			 //Once a winner is determined, display the board and return a winner 
+			 
              return null; // REDO THIS LATER
 		}
 
