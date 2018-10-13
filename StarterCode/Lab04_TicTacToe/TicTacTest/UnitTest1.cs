@@ -115,6 +115,12 @@ namespace TicTacTest
             Assert.True(current != next);
         }
 
+        /// <summary>
+        /// Tests getting the position by inputting a number
+        /// </summary>
+        /// <param name="input">The position: 1-9 on a board</param>
+        /// <param name="row">The actual row</param>
+        /// <param name="column">The actual column</param>
         [Theory]
         [InlineData(1, 0, 0)]
         [InlineData(2, 0, 1)]
@@ -127,8 +133,55 @@ namespace TicTacTest
         [InlineData(9, 2, 2)]
         static void PlayerPositionTest(int input, int row, int column)
         {
+            // gets the position from the method
             Position pos = Player.PositionForNumber(input);
             Assert.True(row == pos.Row && column == pos.Column);
+        }
+
+        /// <summary>
+        /// Tests our board to see if it is full, should return false
+        /// </summary>
+        [Fact]
+        static void FullBoardFalse()
+        {
+            // creates the players
+            Player p1 = new Player();
+
+            Player p2 = new Player();
+
+            // creates a new game board and sets the winning gameboard
+            Board newBoard = new Board();
+            Game newGame = new Game(p1, p2);
+            newGame.Board.GameBoard = new string[,]
+                {
+                    {"X", "X", "X"},
+                    {"4", "O", "O"},
+                    {"7", "8", "9"},
+                };
+            Assert.True(newGame.FullBoard() == false);
+        }
+
+        /// <summary>
+        /// Tests our board to see if it is full, should return true
+        /// </summary>
+        [Fact]
+        static void FullBoardTrue()
+        {
+            // creates the players
+            Player p1 = new Player();
+
+            Player p2 = new Player();
+
+            // creates a new game board and sets the winning gameboard
+            Board newBoard = new Board();
+            Game newGame = new Game(p1, p2);
+            newGame.Board.GameBoard = new string[,]
+                {
+                    {"X", "X", "X"},
+                    {"X", "O", "O"},
+                    {"O", "X", "O"},
+                };
+            Assert.True(newGame.FullBoard() == true);
         }
     }
 }
