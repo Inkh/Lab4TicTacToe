@@ -59,13 +59,13 @@ namespace Lab04_TicTacToe.Classes
             //Once a winner is determined, display the board and return a winner 
             while (!CheckForWinner(Board) && !FullBoard())
             {
-                Board.DisplayBoard();
                 if (NextPlayer().TakeTurn(Board))
                 {
                     SwitchPlayer();
                 }
+                Board.DisplayBoard();
             }
-            Board.DisplayBoard();
+            //Board.DisplayBoard();
             return Winner;
 		}
 
