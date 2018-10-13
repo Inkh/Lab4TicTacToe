@@ -1,4 +1,6 @@
 ﻿using System;
+using Lab04_TicTacToe.Classes;
+using static System.Console;
 
 namespace Lab04_TicTacToe
 {
@@ -6,15 +8,32 @@ namespace Lab04_TicTacToe
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+            PlayGame();
 		}
 
 		static void PlayGame()
 		{
-			// TODO: Instantiate your players
-			// Create the Game
-			// Play the Game
-			// Output the winner
-		}
+            // DONE: Instantiate your players
+            WriteLine("Enter player one name:");
+            Player playerOne = new Player()
+            {
+                Name = ReadLine(),
+                Marker = "X",
+                IsTurn = true
+            };
+            WriteLine("Enter player two name:");
+            Player playerTwo = new Player()
+            {
+                Name = ReadLine(),
+                Marker = "O",
+                IsTurn = false
+            };
+
+            // Create the Game
+            Game newGame = new Game(playerOne, playerTwo);
+            // Play the Game
+            newGame.Play();
+            // Output the winner
+        }
 	}
 }
