@@ -11,6 +11,9 @@ namespace Lab04_TicTacToe
             PlayGame();
 		}
 
+        /// <summary>
+        /// Starts the game. Holds all game logic.
+        /// </summary>
 		public static void PlayGame()
 		{
             // DONE: Instantiate your players
