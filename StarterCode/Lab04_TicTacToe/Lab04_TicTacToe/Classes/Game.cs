@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	class Game
+	public class Game
 	{
 		public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
@@ -24,6 +24,25 @@ namespace Lab04_TicTacToe.Classes
 			Board = new Board();
 		}
 
+        /// <summary>
+        /// Goes through the gameboard and determines if the whole board is populated by markers.
+        /// If the board is populated without a Winner, then the game is a draw.
+        /// </summary>
+        /// <returns>True if full of markers, False if available coordinates are available</returns>
+        public bool FullBoard()
+        {
+            for (int i = 0; i < Board.GameBoard.GetLength(0); i++)
+            {
+                for (int j = 0; j < Board.GameBoard.GetLength(1); j++)
+                {
+                    if (Int32.TryParse(Board.GameBoard[i, j], out int _))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 		/// <summary>
 		/// Activate the Play of the game
 		/// </summary>
@@ -33,12 +52,12 @@ namespace Lab04_TicTacToe.Classes
 
             //DONE: Complete this method and utilize the rest of the class structure to play the game.
             //While there isn't a winner determined or too many turns have been taken,
-			 //allow each player to see the board and take a turn.
-			 //A turn consists of picking a position on the board, and then putting their appropriate marker
-			 //in the board. Be sure to display the board after every turn to show the most up to date 
-			 //board so the next player can accurately choose. 
-			 //Once a winner is determined, display the board and return a winner 
-            while (!CheckForWinner(Board))
+            //allow each player to see the board and take a turn.
+            //A turn consists of picking a position on the board, and then putting their appropriate marker
+            //in the board. Be sure to display the board after every turn to show the most up to date 
+            //board so the next player can accurately choose. 
+            //Once a winner is determined, display the board and return a winner 
+            while (!CheckForWinner(Board) && !FullBoard())
             {
                 Board.DisplayBoard();
                 if (NextPlayer().TakeTurn(Board))
@@ -47,7 +66,6 @@ namespace Lab04_TicTacToe.Classes
                 }
             }
             Board.DisplayBoard();
-            Winner = PlayerOne.IsTurn ? PlayerTwo : PlayerOne;
             return Winner;
 		}
 
@@ -88,6 +106,7 @@ namespace Lab04_TicTacToe.Classes
                 if (a.Equals(b) && b.Equals(c))
                 {
                     // return true if a winner has been reached.
+                    Winner = PlayerOne.IsTurn ? PlayerTwo : PlayerOne;
                     return true;
                 }
             }
