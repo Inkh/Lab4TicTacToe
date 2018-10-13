@@ -4,14 +4,14 @@ using static System.Console;
 
 namespace Lab04_TicTacToe
 {
-	class Program
+	public class Program
 	{
 		static void Main(string[] args)
 		{
             PlayGame();
 		}
 
-		static void PlayGame()
+		public static void PlayGame()
 		{
             // DONE: Instantiate your players
             WriteLine("Enter player one name:");
@@ -33,6 +33,7 @@ namespace Lab04_TicTacToe
             Game newGame = new Game(playerOne, playerTwo);
             // Play the Game
             newGame.Play();
+            WriteLine($"Congrats {newGame.Winner.Name}, you won!");
             // Output the winner
         }
 	}

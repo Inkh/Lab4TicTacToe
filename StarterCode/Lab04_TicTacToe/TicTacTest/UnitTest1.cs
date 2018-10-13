@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using static Lab04_TicTacToe.Program;
 
 namespace TicTacTest
 {
