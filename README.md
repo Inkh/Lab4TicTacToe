@@ -20,3 +20,11 @@ Alternatively, you can navigate to project directory containing Program.cs file 
  ## Visualization
 
  ![tictac](assets/tictac.PNG)
+
+ ## Contributors
+
+ Code Fellows for starter code. 
+
+ Jeff Weng
+
+ Jimmy Nguyen
